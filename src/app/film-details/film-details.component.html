@@ -1,3 +1,37 @@
-<p>
-  film-details works!
-</p>
+<div class="row data-container" *ngIf="data">
+  <div class="col-md-3">
+    <img src="{{data.photo}}" class="img-responsive">
+  </div>
+  <div class="col-md-9">
+    <h5 class="card-title">{{data.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{data.genre}}</h6>
+    <p>
+      Release Date: {{data.release_date}}
+      <br> Rating: {{data.rating}}/5
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <br> Ticket Price: {{data.ticket_price | currency}}
+      <br> Country: {{data.country}}
+      <br>
+    </p>
+  </div>
+</div>
+<div class="row" *ngIf="data">
+  <div class="col-md-12">
+    <hr>
+    <h2>Comments</h2>
+    <hr>
+    <p class="alert alert-info" *ngFor="let c of data.comments">
+      <b>{{c.user.name}}:</b> {{c.comment}} <span class="dt">{{c.created_at}}</span>
+    </p>
+    <div *ngIf="user">
+      <form [formGroup]="commentForm" name="commentForm" (submit)="comment($event, commentForm.value)">
+        <div class="form-group">
+          <input type="email" class="form-control" id="comment" formControlName="comment" placeholder="Type your comment here">
+        </div>
+        <button type="submit" class="btn btn-success">Post</button>
+        <br>
+      </form>
+    </div>
+
+  </div>
+</div>

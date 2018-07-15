@@ -12,8 +12,8 @@
             <h6 class="card-subtitle mb-2 text-muted">{{f.genre}}</h6>
             <p>
               Release Date: {{f.release_date}}<br>
-              Rating: {{f.rating}}<br>
-              Ticket Price: {{f.ticket_price}}<br>
+              Rating: {{f.rating}}/5 <i class="fa fa-star" aria-hidden="true"></i><br>
+              Ticket Price: {{f.ticket_price | currency}}<br>
               Country: {{f.country}}<br>
             </p>
           </div>

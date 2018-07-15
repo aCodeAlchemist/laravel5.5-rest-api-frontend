@@ -26,11 +26,15 @@ export class MainService {
     return this.api.get('/films', params);
   }
 
-  filmDetails() {
-
+  filmDetails(slug) {
+    return this.api.get('/films/' + slug);
   }
 
   filmCreate(params) {
     return this.api.post('/films', params);
+  }
+
+  comment(params) {
+    return this.api.post('/comment', params);
   }
 }

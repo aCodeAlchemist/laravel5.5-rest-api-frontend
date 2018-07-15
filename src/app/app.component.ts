@@ -36,6 +36,7 @@ export class AppComponent {
 
   logout() {
     localStorage.removeItem('user');
+    localStorage.removeItem('access_token');
     this.api.logout();
     this.loggedIn = false;
   }

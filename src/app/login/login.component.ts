@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   login(e, v) {
     this.api.login(v).subscribe((res: any) => {
       localStorage.setItem('user', JSON.stringify(res.data));
+      localStorage.setItem('access_token', res.data.api_token);
       window.location.href = '/';
     }, err => {
       alert('Login failed');

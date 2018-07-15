@@ -3,6 +3,14 @@ body {
     font-family: 'Nunito Sans', sans-serif;
 }
 
+.fa-star {
+  color: orange;
+}
+
+.img-responsive {
+  width: 100%
+}
+
 .data-container {
   margin-top: 1rem
 }
