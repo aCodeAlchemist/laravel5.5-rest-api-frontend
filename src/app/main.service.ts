@@ -10,12 +10,16 @@ export class MainService {
     private api: ApiService
   ) { }
 
-  login() {
-
+  login(params) {
+    return this.api.post('/login', params);
   }
 
-  register() {
+  logout() {
+    return this.api.post('/logout', {});
+  }
 
+  register(params) {
+    return this.api.post('/register', params);
   }
 
   films(params) {
