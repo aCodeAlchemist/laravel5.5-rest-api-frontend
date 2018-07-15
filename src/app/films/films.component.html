@@ -5,7 +5,7 @@
     </p>
     <div class="col-md-12 card-deck" *ngIf="!inProgress">
       <div *ngFor="let f of records">
-        <div class="card mb-3" (click)="goToDetails()">
+        <div class="card mb-3" (click)="goToDetails(f.slug)">
           <img class="card-img-top" src="{{f.photo}}">
           <div class="card-body">
             <h5 class="card-title">{{f.name}}</h5>

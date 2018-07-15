@@ -1,3 +1,66 @@
-<p>
-  film-create works!
-</p>
+<div class="row data-container">
+  <div class="col-md-4 offset-md-4">
+    <form [formGroup]="createForm" name="createForm" (submit)="createFilm($event, createForm.value)">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <span class="text-danger" *ngIf="createForm.controls['name'].hasError('required') && (createForm.controls['name'].dirty || createForm.controls['name'].touched)">This field is required</span>
+      </div>
+      <div class="form-group">
+        <label for="name">Description:</label>
+        <textarea rows="10" type="text" class="form-control" id="description" formControlName="description"></textarea>
+        <span class="text-danger" *ngIf="createForm.controls['description'].hasError('required') && (createForm.controls['description'].dirty || createForm.controls['description'].touched)">This field is required</span>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Release Date:</label>
+        <input type="text" class="form-control" id="release_date" formControlName="release_date" bsDatepicker [bsConfig]="{ dateInputFormat: 'YYYY-MM-DD' }">
+        <span class="text-danger" *ngIf="createForm.controls['release_date'].hasError('required') && (createForm.controls['release_date'].dirty || createForm.controls['release_date'].touched)">This field is required</span>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Rating:</label>
+        <select class="form-control" name="rating" formControlName="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+          <label for="name">Ticket Price:</label>
+          <input type="number" class="form-control" id="ticket_price" formControlName="ticket_price">
+          <span class="text-danger" *ngIf="createForm.controls['ticket_price'].hasError('required') && (createForm.controls['ticket_price'].dirty || createForm.controls['ticket_price'].touched)">This field is required</span>
+        </div>
+
+        <div class="form-group">
+            <label for="name">Country:</label>
+            <input type="text" class="form-control" id="country" formControlName="country">
+            <span class="text-danger" *ngIf="createForm.controls['country'].hasError('required') && (createForm.controls['country'].dirty || createForm.controls['country'].touched)">This field is required</span>
+          </div>
+
+          <div class="form-group">
+              <label for="name">Genre:</label>
+              <input type="text" class="form-control" id="genre" formControlName="genre">
+              <span class="text-danger" *ngIf="createForm.controls['genre'].hasError('required') && (createForm.controls['genre'].dirty || createForm.controls['genre'].touched)">This field is required</span>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Photo URL:</label>
+                <input type="text" class="form-control" id="photo" formControlName="photo">
+                <span class="text-danger" *ngIf="createForm.controls['photo'].hasError('required') && (createForm.controls['photo'].dirty || createForm.controls['photo'].touched)">This field is required</span>
+              </div>
+
+      <button [disabled]="inProgress" type="submit" class="btn btn-primary">Create Film</button>
+      <br>
+      <br>
+      <div *ngIf="errors">
+        <p *ngFor="let e of errors" class="alert alert-danger">
+          {{e[0]}}
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

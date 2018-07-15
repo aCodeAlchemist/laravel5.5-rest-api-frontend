@@ -30,7 +30,7 @@ export class MainService {
 
   }
 
-  filmCreate() {
-
+  filmCreate(params) {
+    return this.api.post('/films', params);
   }
 }

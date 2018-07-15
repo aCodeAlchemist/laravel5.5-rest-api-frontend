@@ -25,7 +25,7 @@
 							Password mismatch
 						</span>
           </div>
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button [disabled]="inProgress" type="submit" class="btn btn-primary">Register</button>
         <br>
         <br>
         <div *ngIf="errors">

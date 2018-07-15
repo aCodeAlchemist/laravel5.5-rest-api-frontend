@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-films',
@@ -18,7 +19,8 @@ export class FilmsComponent implements OnInit {
   inProgress = true;
 
   constructor(
-    private api: MainService
+    private api: MainService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -36,6 +38,10 @@ export class FilmsComponent implements OnInit {
 
   onPageChanged() {
     this.getFilms();
+  }
+
+  goToDetails(slug) {
+    this.router.navigate(['films', slug]);
   }
 
 }

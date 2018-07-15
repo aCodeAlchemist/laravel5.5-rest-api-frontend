@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
 
   regForm: FormGroup;
   errors;
+  inProgress = true;
 
   constructor(
     private fb: FormBuilder,
@@ -40,6 +41,7 @@ export class RegisterComponent implements OnInit {
   }
 
   createAccount(e, v) {
+    this.inProgress = true;
     this.api.register(v).subscribe((res: any) => {
       alert('Registration Successful.');
       this.router.navigate(['login']);
