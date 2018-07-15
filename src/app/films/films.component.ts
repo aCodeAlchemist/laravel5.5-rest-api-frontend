@@ -28,12 +28,14 @@ export class FilmsComponent implements OnInit {
   }
 
   getFilms() {
-    this.api.films({page: this.pagination.currentPage}).subscribe((res: any) => {
-      this.pagination.total = res.total;
-      this.records = res.data;
-      console.log('Films >> ', res);
-      this.inProgress = false;
-    });
+    setTimeout(() => {
+      this.api.films({page: this.pagination.currentPage}).subscribe((res: any) => {
+        this.pagination.total = res.total;
+        this.records = res.data;
+        console.log('Films >> ', res);
+        this.inProgress = false;
+      });
+    }, 100);
   }
 
   onPageChanged() {

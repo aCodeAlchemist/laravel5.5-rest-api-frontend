@@ -37,8 +37,9 @@
 
         <div class="form-group">
             <label for="name">Country:</label>
-            <input type="text" class="form-control" id="country" formControlName="country">
-            <span class="text-danger" *ngIf="createForm.controls['country'].hasError('required') && (createForm.controls['country'].dirty || createForm.controls['country'].touched)">This field is required</span>
+            <select class="form-control" name="country" formControlName="country">
+                <option value="{{ct.name}}" *ngFor="let ct of countries">{{ct.name}}</option>
+              </select>
           </div>
 
           <div class="form-group">

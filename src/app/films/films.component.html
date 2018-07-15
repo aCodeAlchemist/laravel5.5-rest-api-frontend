@@ -1,5 +1,5 @@
 <div class="row data-container">
-  <div class="col-md-12" *ngIf="!inProgress">
+  <div class="col-md-12" *ngIf="records.length > 0">
     <p>
       <pagination [totalItems]="pagination.total" [(ngModel)]="pagination.currentPage" [itemsPerPage]="pagination.limit" (pageChanged)="onPageChanged($event)"></pagination>
     </p>
