@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { PaginationModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -28,6 +29,7 @@ import { MainService } from './main.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    PaginationModule.forRoot()
   ],
   providers: [
     ApiService,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-films',
@@ -7,9 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmsComponent implements OnInit {
 
-  constructor() { }
+  pagination = {
+    total: 0,
+    currentPage: 1,
+    limit: 1
+  };
+
+  records = [];
+  inProgress = true;
+
+  constructor(
+    private api: MainService
+  ) { }
 
   ngOnInit() {
+    this.getFilms();
+  }
+
+  getFilms() {
+    this.api.films({page: this.pagination.currentPage}).subscribe((res: any) => {
+      this.pagination.total = res.total;
+      this.records = res.data;
+      console.log('Films >> ', res);
+      this.inProgress = false;
+    });
+  }
+
+  onPageChanged() {
+    this.getFilms();
   }
 
 }

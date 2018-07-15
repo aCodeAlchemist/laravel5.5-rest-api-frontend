@@ -18,8 +18,8 @@ export class MainService {
 
   }
 
-  films() {
-
+  films(params) {
+    return this.api.get('/films', params);
   }
 
   filmDetails() {

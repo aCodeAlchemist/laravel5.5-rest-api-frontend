@@ -1,3 +1,24 @@
-<p>
-  films works!
-</p>
+<div class="row data-container">
+  <div class="col-md-12" *ngIf="!inProgress">
+    <p>
+      <pagination [totalItems]="pagination.total" [(ngModel)]="pagination.currentPage" [itemsPerPage]="pagination.limit" (pageChanged)="onPageChanged($event)"></pagination>
+    </p>
+    <div class="col-md-12 card-deck" *ngIf="!inProgress">
+      <div *ngFor="let f of records">
+        <div class="card mb-3" (click)="goToDetails()">
+          <img class="card-img-top" src="{{f.photo}}">
+          <div class="card-body">
+            <h5 class="card-title">{{f.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{f.genre}}</h6>
+            <p>
+              Release Date: {{f.release_date}}<br>
+              Rating: {{f.rating}}<br>
+              Ticket Price: {{f.ticket_price}}<br>
+              Country: {{f.country}}<br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
